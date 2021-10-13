@@ -6,33 +6,71 @@ public class Manager {
     private MatchMaker matchMakerObject;
     private Scheduler schedulerObject;
 
-//    public Manager(Manageable pairs_players) {
-//        if(pairs_players.getSchedulableUsernames() == pairs_players.getUsernames()) {
-//            this.pair_of_players.put([pairs_players.getUsernames()[0], pairs_players.getUsernames()[1]], [])
-//        }
-//    }
-//
-//    public String randomFunc(Manageable player1, Manageable player2){
-//        this.scheduler.getCommonTimes(player1, player2);
-//    }
-
     public Manager(MatchMaker mm1, Scheduler ss1) {
         this.matchMakerObject = mm1;
         this.schedulerObject = ss1;
     }
 
-    public double getMatchableScore(){
-        return 0.0;
+    public double getMatchableScore(Manageable user1, Manageable user2){
+        return matchMakerObject.getScore((Matchable) m1, (Matchable) m2);
     }
 
-    public HashMap<String[], Object[]> fReturn(Manageable m1, Manageable m2){
-        ArrayList<String> overlap = schedulerObject.getCommonTimes((Schedulable) m1, (Schedulable) m2);
-        double matchable_score = matchMakerObject.getScore((Matchable) m1, (Matchable) m2);
-
-        boolean m1SwipeStatus = matchMakerObject.getSwipedStatus((Matchable) m1, (Matchable) m2);
-        boolean m2SwipeStatus = matchMakerObject.getSwipedStatus((Matchable) m2, (Matchable) m1);
-
-        boolean[] swipedPair = {m1SwipeStatus, m2SwipeStatus};
+    public ArrayList<String> getOverlapTimes(Manageable user1, Manageable user2){
+        return schedulerObject.getCommonTimes((Schedulable) m1, (Schedulable) m2);
     }
+
+    public boolean getSwipeStatusPair(Manageable user1, Manageable user2){
+        boolean user1SwipeStatus = matchMakerObject.getSwipedStatus((Matchable) user1, (Matchable) user2);
+        boolean user2SwipeStatus = matchMakerObject.getSwipedStatus((Matchable) user2, (Matchable) user1);
+        boolean[] swipedPair = {user1SwipeStatus, user2SwipeStatus};
+        return swipedPair;
+    }
+
+    /**
+     * Ranks the list of manageable objects based on their score with user1. Highest rank is index 0.
+     * @param user1 Manageable object (player)
+     * @param dirty_list List of Manageable objects (players) that are to be compared with user1 based on score.
+     * @return a ranked ArrayList of Manageable objects
+     */
+    public ArrayList<Manageable> getRankedList(Manageable user1, ArrayList<Manageable> dirty_list) {
+        int listSize = dirty_list.size();
+
+        // ArrayList of object array of size 2 where
+        // index 0 is the manageable object and index 1 is the score (double).
+        ArrayList<Object[]> indexedScores = new ArrayList<>();
+
+        // Fills in indexedScores in the required format mentioned above.
+        for (Manageable managed_user : dirty_list){
+            Object[] eachIndex = new Object[2];
+            eachIndex[0] = managed_user;
+            eachIndex[1] = getMatchableScore(user1, managed_user);
+            indexedScores.add(eachIndex);
+        }
+
+        // The bubble sort algorithm that sorts the indexedScores list according to score value.
+        for (int i = 0; i < listSize - 1; i++){
+            for (int j = 0; j < listSize - i - 1; j++) {
+                if (indexedScores[j][1] > indexedScores[j + 1][1]) {
+                    // swap indexedScores[j+1] and indexedScores[j]
+                    Object temp = indexedScores[j];
+                    indexedScores[j] = indexedScores[j + 1];
+                    indexedScores[j + 1] = temp;
+                }
+            }
+        }
+
+        // This will be the final ArrayList that holds the ranked manageable objects.
+        ArrayList<Manageable> returnList = new ArrayList<>();
+
+        // Fills in the returnList with just the Manageables in the ranked order.
+        for (int i = 0; i < listSize; i++){
+            returnList.add(indexedScores[i][0]);
+        }
+
+        return returnList;
+
+    }
+
+
 }
 
