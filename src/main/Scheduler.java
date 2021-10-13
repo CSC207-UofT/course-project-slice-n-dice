@@ -26,7 +26,7 @@ public class Scheduler{
      * This method returns a list of the two schedulable objects (Tennis players).
      * How to call -> Scheduler.getSchedulableUsernames((Schedulable) p1, (Schedulable) p2)
      */
-    public ArrayList<String> getSchedulableUsernames(Schedulable player1, Schedulable player2){
+    public String[] getSchedulableUsernames(Schedulable player1, Schedulable player2){
         String[] username_pair = {player1.getUsername(), player2.getUsername()};
         return username_pair;
     }
