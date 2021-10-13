@@ -1,10 +1,8 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Manager {
-    private HashMap<String[], Object[]> pair_of_players = new HashMap<String[], Object[]>();
-    private ArrayList<String> schedule_overlap;
-
     private MatchMaker matchMakerObject;
     private Scheduler schedulerObject;
 
@@ -21,16 +19,20 @@ public class Manager {
     public Manager(MatchMaker mm1, Scheduler ss1) {
         this.matchMakerObject = mm1;
         this.schedulerObject = ss1;
-
     }
 
-    public HashMap<String[], Object[]> freturn(Manageable m1, Manageable m2){
-        overlap = scheduler.getCommonTimes((Schedulable) m1, (Schedulable) m2)
+    public double getMatchableScore(){
+        return 0.0;
     }
 
-    public compileList() {
-        for ()
-            this.reccomendations
+    public HashMap<String[], Object[]> fReturn(Manageable m1, Manageable m2){
+        ArrayList<String> overlap = schedulerObject.getCommonTimes((Schedulable) m1, (Schedulable) m2);
+        double matchable_score = matchMakerObject.getScore((Matchable) m1, (Matchable) m2);
+
+        boolean m1SwipeStatus = matchMakerObject.getSwipedStatus((Matchable) m1, (Matchable) m2);
+        boolean m2SwipeStatus = matchMakerObject.getSwipedStatus((Matchable) m2, (Matchable) m1);
+
+        boolean[] swipedPair = {m1SwipeStatus, m2SwipeStatus};
     }
 }
 
