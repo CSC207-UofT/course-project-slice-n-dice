@@ -10,6 +10,7 @@ public class Player implements Manageable{
     private final ArrayList<String> availability;
     private final double skill;
     private final String phone_number;
+    private ArrayList<String> swiped_users;
 
     public Player(String username, int age, int longitude, int latitude, ArrayList<String> availability, Double skill, String phone_number)
     {
@@ -20,6 +21,7 @@ public class Player implements Manageable{
         this.availability = availability;
         this.skill = skill;
         this.phone_number = phone_number;
+        this.swiped_users = = new ArrayList<String>;
 
     }
     public String getUsername() {
@@ -49,6 +51,12 @@ public class Player implements Manageable{
     public ArrayList<String> getSchedule() {
         return this.availability;
     }
+    
+    public setSwiped_Users(Player player) {
+        swiped_users.add(player)
+    }
+    
+    
 
 }
 
