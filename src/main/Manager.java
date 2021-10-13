@@ -40,11 +40,11 @@ public class Manager {
         Object[] indexedScores = new Object[listSize];
 
         // Fills in indexedScores in the required format mentioned above.
-        for (Manageable managed_user : dirty_list){
+        for (int i = 0; i < listSize; i++){
             Object[] eachIndex = new Object[2];
-            eachIndex[0] = managed_user;
-            eachIndex[1] = getMatchableScore(user1, managed_user);
-            indexedScores.add(eachIndex);
+            eachIndex[0] = dirty_list[i];
+            eachIndex[1] = getMatchableScore(user1, dirty_list[i]);
+            indexedScores[i] = eachIndex;
         }
 
         // The bubble sort algorithm that sorts the indexedScores list according to score value.
