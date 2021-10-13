@@ -33,7 +33,7 @@ public class Scheduler implements Manageable{
     }
 
     public ArrayList<String> getSchedulableUsernames(){
-        String[] username_pair = {player1.getUsername, player2.getUsername}
+        String[] username_pair = {this.player1.getUsername(), this.player2.getUsername()}
         return username_pair;
     }
 }
