@@ -1,15 +1,10 @@
 import static java.lang.Math.sqrt;
 
-public class matchMaker implements Manageable {
-
-    private Matchable player1;
-    private Matchable player2;
+public class matchMaker{
     public double score;
     public ArrayList<String> usernames;
 
-    public matchMaker(Matchable player1, Matchable player2) {
-        this.player1 = player1;
-        this.player2 = player2;
+    public matchMaker() {
     }
 
     /**
