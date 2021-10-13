@@ -12,11 +12,11 @@ public class Manager {
     }
 
     public double getMatchableScore(Manageable user1, Manageable user2){
-        return matchMakerObject.getScore((Matchable) m1, (Matchable) m2);
+        return matchMakerObject.getScore((Matchable) user1, (Matchable) user2);
     }
 
     public ArrayList<String> getOverlapTimes(Manageable user1, Manageable user2){
-        return schedulerObject.getCommonTimes((Schedulable) m1, (Schedulable) m2);
+        return schedulerObject.getCommonTimes((Schedulable) user1, (Schedulable) user2);
     }
 
     public boolean getSwipeStatusPair(Manageable user1, Manageable user2){
