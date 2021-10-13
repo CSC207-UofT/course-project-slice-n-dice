@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Player implements Manageable{
     private String username;
@@ -9,55 +6,63 @@ public class Player implements Manageable{
     private double[] location = new double[2];
     private ArrayList<String> availability;
     private double skill;
-    private String phone_number;
-    private ArrayList<String> swiped_users;
+    private String phoneNumber;
+    private ArrayList<String> swipedUsers;
 
     public Player(String username, int age, double longitude, double latitude, ArrayList<String> availability, double skill,
-                  String phone_number)
+                  String phoneNumber)
     {
         this.username = username;
         this.age = age;
         this.location = new double[]{latitude, longitude};
         this.availability = availability;
         this.skill = skill;
-        this.phone_number = phone_number;
-        this.swiped_users = new ArrayList<String>;
+        this.phoneNumber = phoneNumber;
+        this.swipedUsers = new ArrayList<>();
 
     }
 
-    public String getUsername() {
+    public String getUsername(){
         return this.username;
     }
 
-    public int getAge() {
+    public int getAge(){
         return this.age;
     }
 
-    public double[] getLocation() {
+    public double[] getLocation(){
         return this.location;
     }
 
-    public ArrayList<String> getAvailability() {
+    public ArrayList<String> getAvailability(){
         return this.availability;
     }
 
-    public double getSkill() {
+    public double getSkill(){
         return this.skill;
     }
 
-    public String getPhone_number() {
-        return this.phone_number;
+    public String getPhoneNumber(){
+        return this.phoneNumber;
     }
 
-    public ArrayList<String> getSchedule() {
+    public ArrayList<String> getSchedule(){
         return this.availability;
     }
-    
-    public setSwiped_Users(Player player) {
-        swiped_users.add(player)
+
+    /**
+     * IMPORTANT - LIST OF PLAYER OBJECTS OR LIST OF STRINGS?
+     * @param swipedPlayer ...
+     */
+    public void setSwipedUsers(Player swipedPlayer){
+        swipedUsers.add(swipedPlayer.username);
     }
-    
-    
+
+    public ArrayList<String> getSwipedUsers(){
+        return swipedUsers;
+    }
+
+
 
 }
 
