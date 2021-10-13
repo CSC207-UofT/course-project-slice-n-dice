@@ -1,8 +1,8 @@
 import static java.lang.Math.sqrt;
 
-public class matchMaker{
+public class MatchMaker{
 
-    public matchMaker() {
+    public MatchMaker() {
     }
 
     /**

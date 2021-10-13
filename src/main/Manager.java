@@ -5,8 +5,8 @@ public class Manager {
     private HashMap<String[], Object[]> pair_of_players = new HashMap<String[], Object[]>();
     private ArrayList<String> schedule_overlap;
 
-    private MatchMaker matchMaker;
-    private Scheduler scheduler;
+    private MatchMaker matchMakerObject;
+    private Scheduler schedulerObject;
 
 //    public Manager(Manageable pairs_players) {
 //        if(pairs_players.getSchedulableUsernames() == pairs_players.getUsernames()) {
@@ -19,8 +19,8 @@ public class Manager {
 //    }
 
     public Manager(MatchMaker mm1, Scheduler ss1) {
-        this.matchMaker = mm1;
-        this.scheduler = ss1;
+        this.matchMakerObject = mm1;
+        this.schedulerObject = ss1;
 
     }
 
