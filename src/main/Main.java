@@ -188,7 +188,7 @@ public class Main {
 
         // Creates a new player object with the information collected above
 
-        //Player p = new Player(username, phoneNumber, age, lat, lon, total_availability, skilllevel);
+        Player user = new Player(username, age, bio, lon, lat, total_availability, skilllevel, phoneNumber);
 
         System.out.println("Great! Your information has been saved: ");
         System.out.println("Username: " + username);
