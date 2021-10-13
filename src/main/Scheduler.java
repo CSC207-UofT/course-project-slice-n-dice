@@ -32,8 +32,9 @@ public class Scheduler implements Manageable{
          return commonTimes;
     }
 
-    public ArrayList<String> getSchedulableUsername(){
-        username_pair = [player1.getUsername, player2.getUsername]
+    public ArrayList<String> getSchedulableUsernames(){
+        String[] username_pair = {player1.getUsername, player2.getUsername}
+        return username_pair;
     }
 }
 
