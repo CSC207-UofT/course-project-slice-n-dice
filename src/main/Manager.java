@@ -19,7 +19,7 @@ public class Manager {
         return schedulerObject.getCommonTimes((Schedulable) user1, (Schedulable) user2);
     }
 
-    public boolean getSwipeStatusPair(Manageable user1, Manageable user2){
+    public boolean[] getSwipeStatusPair(Manageable user1, Manageable user2){
         boolean user1SwipeStatus = matchMakerObject.getSwipedStatus((Matchable) user1, (Matchable) user2);
         boolean user2SwipeStatus = matchMakerObject.getSwipedStatus((Matchable) user2, (Matchable) user1);
         boolean[] swipedPair = {user1SwipeStatus, user2SwipeStatus};
@@ -37,7 +37,7 @@ public class Manager {
 
         // ArrayList of object array of size 2 where
         // index 0 is the manageable object and index 1 is the score (double).
-        ArrayList<Object[]> indexedScores = new ArrayList<>();
+        Object[] indexedScores = new Object[listSize];
 
         // Fills in indexedScores in the required format mentioned above.
         for (Manageable managed_user : dirty_list){
