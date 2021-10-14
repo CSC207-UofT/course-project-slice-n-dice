@@ -39,24 +39,27 @@ public class Manager {
         // index 0 is the manageable object and index 1 is the score (double).
         Object[] indexedScores = new Object[listSize];
 
+        Manageable[] indexedManageables = new Manageable[listSize];
+        double[] indexedScores = new double[listSize];
+
         // Fills in indexedScores in the required format mentioned above.
         for (int i = 0; i < listSize; i++){
-            Object[] eachIndex = new Object[2];
-            Manageable user2 = dirty_list.get(i);
-            double score = getMatchableScore(user1, dirty_list.get(i))
-            eachIndex[0] = new Manageable(user2);
-            eachIndex[1] = new Double(score);
-            indexedScores[i] = eachIndex;
+            indexedManageables[i] = dirty_list.get(i);
+            indexedScores[i] = getMatchableScore(user1, dirty_list.get(i));
         }
 
         // The bubble sort algorithm that sorts the indexedScores list according to score value.
         for (int i = 0; i < listSize - 1; i++){
             for (int j = 0; j < listSize - i - 1; j++) {
-                if (indexedScores[j][1] > indexedScores[j + 1][1]) {
+                if (indexedScores[j] > indexedScores[j + 1]) {
                     // swap indexedScores[j+1] and indexedScores[j]
-                    Object temp = indexedScores[j];
+                    double temp = indexedScores[j];
                     indexedScores[j] = indexedScores[j + 1];
                     indexedScores[j + 1] = temp;
+
+                    Manageable temp = indexedManageables[j];
+                    indexedManageables[j] = indexedManageables[j + 1];
+                    indexedManageables[j + 1] = temp;
                 }
             }
         }
@@ -66,7 +69,7 @@ public class Manager {
 
         // Fills in the returnList with just the Manageables in the ranked order.
         for (int i = 0; i < listSize; i++){
-            returnList.add(indexedScores[i][0]);
+            returnList.add(indexedManageables[i]);
         }
 
         return returnList;
