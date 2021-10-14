@@ -10,6 +10,17 @@ public class Player implements Manageable{
     private String phoneNumber;
     private ArrayList<String> swipedUsers;
 
+    public Player(){
+        this.username = "";
+        this.age = 0;
+        this.location = new double[]{0, 0};
+        this.bio = "";
+        this.availability = new ArrayList<String>();
+        this.skill = 0;
+        this.phoneNumber = "";
+        this.swipedUsers = new ArrayList<>();
+    }
+
     public Player(String username, int age, String bio, double latitude, double longitude, ArrayList<String> availability, double skill,
                   String phoneNumber)
     {
@@ -26,6 +37,10 @@ public class Player implements Manageable{
 
     public String getUsername(){
         return this.username;
+    }
+
+    public String getBio(){
+        return this.bio;
     }
 
     public int getAge(){

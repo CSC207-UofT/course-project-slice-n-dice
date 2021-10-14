@@ -5,7 +5,12 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static ArrayList<Player> all_users = new ArrayList<Player>();
+    public static ArrayList<Manageable> all_users = new ArrayList<Manageable>();
+    public static Player user = new Player();
+    public static Player u1 = new Player();
+    public static Player u2 = new Player();
+    public static Player u3 = new Player();
+    public static Player u4 = new Player();
 
     public static void makeProfile(){
 
@@ -214,10 +219,13 @@ public class Main {
         ArrayList<String> availability1 = new ArrayList<>(Arrays.asList("Monday 1", "Monday 2", "Monday 3", "Monday 10", "Monday 22", "Tuesday 7", "Thursday 1", "Thursday 2", "Thursday 3", "Friday 4", "Friday 8", "Friday 9", "Friday 10", "Friday 11", "Friday 12", "Saturday 12", "Saturday 1", "Saturday 2", "Saturday 3", "Saturday 4"));
         ArrayList<String> availability2 = new ArrayList<>(Arrays.asList("Monday 10", "Monday 12", "Monday 3", "Monday 11", "Monday 22", "Tuesday 7", "Thursday 1", "Thursday 2", "Thursday 3", "Friday 4", "Friday 8", "Friday 9", "Friday 10", "Friday 11", "Friday 12", "Saturday 12", "Saturday 1", "Saturday 2", "Saturday 3", "Saturday 4", "Sunday 5", "Sunday 6"));
 
-        Player u1 = new Player("johndoe17", 22, "I love tennis!", 43.663898, -79.387914, availability1, 5, "6473458765");
-        Player u2 = new Player("tennisbro123", 17, "tennis rox", 43.663898, -79.387914, availability2, 5, "4165556789");
-        Player u3 = new Player("realperson123", 20, "I am a real person who likes tennis", 43.669145, -79.399372, availability1, 3, "6463648999");
-        Player u4 = new Player("emma16", 19, "tennis is soooooooo fun", 43.671442, -79.397645, availability2, 2, "5197653487");
+        u1 = new Player("johndoe17", 22, "I love tennis!", 43.663898, -79.387914, availability1, 5, "6473458765");
+        u2 = new Player("tennisbro123", 17, "tennis rox", 43.663898, -79.387914, availability2, 5, "4165556789");
+        u3 = new Player("realperson123", 20, "I am a real person who likes tennis", 43.669145, -79.399372, availability1, 3, "6463648999");
+        u4 = new Player("emma16", 19, "tennis is soooooooo fun", 43.671442, -79.397645, availability2, 2, "5197653487");
+
+        u4.setSwipedUsers(user);
+        u1.setSwipedUsers(user);
 
         all_users.add(u1);
         all_users.add(u2);
@@ -226,12 +234,81 @@ public class Main {
 
     }
 
-    public static void mainMenu(){
-
-    }
 
     public static void presentMatches(){
-        System.out.println("Would you like to match with " + "? (Y/N)");
+            Scheduler scheduler1 = new Scheduler();
+            MatchMaker matchMaker1 = new MatchMaker();
+            Manager managerObject = new Manager(matchMaker1, scheduler1);
+            ArrayList<Manageable> users_in_order = new ArrayList<>();
+            users_in_order = managerObject.getRankedList(user, all_users);
+
+            System.out.println(u1.getUsername());
+            System.out.println("Age: " + u1.getAge());
+            System.out.println("Bio: " + u1.getBio());
+            System.out.println("Skill Level: " + u1.getSkill());
+            System.out.println();
+
+
+            System.out.println("Would you like to match with " + u1.getUsername()+ "? (Y/N)");
+            Scanner s1 = new Scanner(System.in);
+            String choice1 = s1.nextLine();
+
+        if(u1.getSwipedUsers().contains(user.getUsername())){
+            System.out.println(u1.getUsername() + " also wants to match with you! Contact them at " + u1.getPhoneNumber() + ".");
+
+        }
+        System.out.println();
+
+        System.out.println(u2.getUsername());
+        System.out.println("Age: " + u2.getAge());
+        System.out.println("Bio: " + u2.getBio());
+        System.out.println("Skill Level: " + u2.getSkill());
+        System.out.println();
+
+
+        System.out.println("Would you like to match with " + u2.getUsername()+ "? (Y/N)");
+        Scanner s2 = new Scanner(System.in);
+        String choice2 = s1.nextLine();
+
+        if(u2.getSwipedUsers().contains(user.getUsername())){
+            System.out.println(u2.getUsername() + " also wants to match with you! Contact them at " + u2.getPhoneNumber());
+        }
+        System.out.println();
+
+        System.out.println(u3.getUsername());
+        System.out.println("Age: " + u3.getAge());
+        System.out.println("Bio: " + u3.getBio());
+        System.out.println("Skill Level: " + u3.getSkill());
+        System.out.println();
+
+
+        System.out.println("Would you like to match with " + u3.getUsername()+ "? (Y/N)");
+        Scanner s3 = new Scanner(System.in);
+        String choice3 = s1.nextLine();
+
+        if(u3.getSwipedUsers().contains(user.getUsername())){
+            System.out.println(u3.getUsername() + " also wants to match with you! Contact them at " + u3.getPhoneNumber());
+        }
+        System.out.println();
+
+        System.out.println(u4.getUsername());
+        System.out.println("Age: " + u4.getAge());
+        System.out.println("Bio: " + u4.getBio());
+        System.out.println("Skill Level: " + u4.getSkill());
+        System.out.println();
+
+
+        System.out.println("Would you like to match with " + u4.getUsername()+ "? (Y/N)");
+        Scanner s4 = new Scanner(System.in);
+        String choice4 = s1.nextLine();
+
+        if(u4.getSwipedUsers().contains(user.getUsername())){
+            System.out.println(u4.getUsername() + " also wants to match with you! Contact them at " + u4.getPhoneNumber());
+        }
+        System.out.println();
+
+
+
 
     }
 
@@ -240,8 +317,6 @@ public class Main {
     public static void main(String[] args){
         makeProfile();
         createFakeUsers();
-
-
         presentMatches();
     }
 }
