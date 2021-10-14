@@ -3,14 +3,14 @@ import java.util.ArrayList;
 public class Player implements Manageable{
     private String username;
     private int age;
-    private string bio;
+    private String bio;
     private double[] location = new double[2];
     private ArrayList<String> availability;
     private double skill;
     private String phoneNumber;
     private ArrayList<String> swipedUsers;
 
-    public Player(String username, int age, String bio, double longitude, double latitude, ArrayList<String> availability, double skill,
+    public Player(String username, int age, String bio, double latitude, double longitude, ArrayList<String> availability, double skill,
                   String phoneNumber)
     {
         this.username = username;

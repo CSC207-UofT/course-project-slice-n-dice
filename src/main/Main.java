@@ -1,8 +1,11 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Main {
+
+    public static ArrayList<Player> all_users = new ArrayList<Player>();
 
     public static void makeProfile(){
 
@@ -67,6 +70,7 @@ public class Main {
             skillsc.next();
         }
         String skillLevel = skillsc.nextLine();
+        double sl = Double.parseDouble(skillLevel);
 
 
         System.out.println("Next, we'll ask some questions about your availability in order to find you the best matches.");
@@ -188,7 +192,8 @@ public class Main {
 
         // Creates a new player object with the information collected above
 
-        Player user = new Player(username, age, bio, lon, lat, total_availability, skilllevel, phoneNumber);
+
+        Player user = new Player(username, age, bio, lon, lat, total_availability, sl, phoneNumber);
 
         System.out.println("Great! Your information has been saved: ");
         System.out.println("Username: " + username);
@@ -204,14 +209,39 @@ public class Main {
 
     }
 
+    public static void createFakeUsers(){
+
+        ArrayList<String> availability1 = new ArrayList<>(Arrays.asList("Monday 1", "Monday 2", "Monday 3", "Monday 10", "Monday 22", "Tuesday 7", "Thursday 1", "Thursday 2", "Thursday 3", "Friday 4", "Friday 8", "Friday 9", "Friday 10", "Friday 11", "Friday 12", "Saturday 12", "Saturday 1", "Saturday 2", "Saturday 3", "Saturday 4"));
+        ArrayList<String> availability2 = new ArrayList<>(Arrays.asList("Monday 10", "Monday 12", "Monday 3", "Monday 11", "Monday 22", "Tuesday 7", "Thursday 1", "Thursday 2", "Thursday 3", "Friday 4", "Friday 8", "Friday 9", "Friday 10", "Friday 11", "Friday 12", "Saturday 12", "Saturday 1", "Saturday 2", "Saturday 3", "Saturday 4", "Sunday 5", "Sunday 6"));
+
+        Player u1 = new Player("johndoe17", 22, "I love tennis!", 43.663898, -79.387914, availability1, 5, "6473458765");
+        Player u2 = new Player("tennisbro123", 17, "tennis rox", 43.663898, -79.387914, availability2, 5, "4165556789");
+        Player u3 = new Player("realperson123", 20, "I am a real person who likes tennis", 43.669145, -79.399372, availability1, 3, "6463648999");
+        Player u4 = new Player("emma16", 19, "tennis is soooooooo fun", 43.671442, -79.397645, availability2, 2, "5197653487");
+
+        all_users.add(u1);
+        all_users.add(u2);
+        all_users.add(u3);
+        all_users.add(u4);
+
+    }
+
+    public static void mainMenu(){
+
+    }
+
     public static void presentMatches(){
+        System.out.println("Would you like to match with " + "? (Y/N)");
 
     }
 
 
-    public static void main(String[] args){
 
+    public static void main(String[] args){
         makeProfile();
+        createFakeUsers();
+
+
         presentMatches();
     }
 }
