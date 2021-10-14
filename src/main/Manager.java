@@ -42,8 +42,10 @@ public class Manager {
         // Fills in indexedScores in the required format mentioned above.
         for (int i = 0; i < listSize; i++){
             Object[] eachIndex = new Object[2];
-            eachIndex[0] = dirty_list[i];
-            eachIndex[1] = getMatchableScore(user1, dirty_list[i]);
+            Manageable user2 = dirty_list.get(i);
+            double score = getMatchableScore(user1, dirty_list.get(i))
+            eachIndex[0] = new Manageable(user2);
+            eachIndex[1] = new Double(score);
             indexedScores[i] = eachIndex;
         }
 
