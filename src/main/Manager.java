@@ -37,7 +37,6 @@ public class Manager {
 
         // ArrayList of object array of size 2 where
         // index 0 is the manageable object and index 1 is the score (double).
-        Object[] indexedScores = new Object[listSize];
 
         Manageable[] indexedManageables = new Manageable[listSize];
         double[] indexedScores = new double[listSize];
@@ -53,13 +52,13 @@ public class Manager {
             for (int j = 0; j < listSize - i - 1; j++) {
                 if (indexedScores[j] > indexedScores[j + 1]) {
                     // swap indexedScores[j+1] and indexedScores[j]
-                    double temp = indexedScores[j];
+                    double temp1 = indexedScores[j];
                     indexedScores[j] = indexedScores[j + 1];
-                    indexedScores[j + 1] = temp;
+                    indexedScores[j + 1] = temp1;
 
-                    Manageable temp = indexedManageables[j];
+                    Manageable temp2 = indexedManageables[j];
                     indexedManageables[j] = indexedManageables[j + 1];
-                    indexedManageables[j + 1] = temp;
+                    indexedManageables[j + 1] = temp2;
                 }
             }
         }
