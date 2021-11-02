@@ -238,7 +238,9 @@ public class Main {
     public static void presentMatches(){
             Scheduler scheduler1 = new Scheduler();
             MatchMaker matchMaker1 = new MatchMaker();
-            Manager managerObject = new Manager(matchMaker1, scheduler1);
+            //TODO The line below needs to be modified. Manager is now an abstract class.
+            //TODO so we need to either call PrioritySkillManager or PriorityLocationManager.
+            Manager managerObject = new PrioritySkillManager(matchMaker1, scheduler1);
             ArrayList<Manageable> users_in_order = new ArrayList<>();
             users_in_order = managerObject.getRankedList(user, all_users);
 
@@ -308,10 +310,7 @@ public class Main {
         System.out.println();
 
 
-
-
     }
-
 
 
     public static void main(String[] args){
