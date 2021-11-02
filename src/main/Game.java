@@ -2,11 +2,12 @@ import java.util.Calendar;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 
-public class Game {
+public class Game implements BioRetrieval{
 
     private Calendar date;
     private String court;
     private ArrayList<String> players;
+    private String bio;
 
     public Game(int d, int m, int y, int h, int min, String c, String p1, String p2) {
         this.date = Calendar.getInstance();
@@ -38,6 +39,10 @@ public class Game {
 
     public ArrayList<String> getPlayers(){
         return players;
+    }
+
+    public String getBio() {
+        return "Date/Time: " + getDate() + " Players: " + this.players;
     }
 
     public static void main (String[] args){
