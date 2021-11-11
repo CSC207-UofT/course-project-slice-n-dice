@@ -14,7 +14,7 @@ public class Game implements BioRetrieval{
         date.clear();
         date.set(y, m - 1, d, h, min);
         // changed m to m - 1 because in Calender, month value is 0 based, i.e.,
-        // 0-January, 1-February and so on...
+        // 0-January, 1-February..., 11-December
 
         this.court = c;
         this.players = new ArrayList<String>();
