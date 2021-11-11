@@ -30,8 +30,8 @@ class GameTest {
 
     @Test
     void getPlayers() {
-        assertEquals(game1.getPlayers().get(0), "Jake");
-        assertEquals(game1.getPlayers().get(1), "Amy");
+        assertTrue(game1.getPlayers().contains("Jake"));
+        assertTrue(game1.getPlayers().contains("Amy"));
     }
 
     @Test
