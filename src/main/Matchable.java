@@ -1,8 +1,11 @@
+/*
+    Developed by Aman Rana and Rahul Jaideep
+ */
 import java.util.ArrayList;
 
 public interface Matchable {
-    public double getSkill();
-    public double[] getLocation();
-    public String getUsername();
-    public ArrayList<String> getSwipedUsers();
+    double getSkill();
+    double[] getLocation();
+    String getUsername();
+    ArrayList<String> getSwipedUsers();
 }

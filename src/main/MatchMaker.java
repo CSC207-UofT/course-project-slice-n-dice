@@ -1,3 +1,7 @@
+/*
+    Developed by Aman Rana
+ */
+
 import java.util.ArrayList;
 
 import static java.lang.Math.sqrt;
