@@ -1,16 +1,21 @@
+package MatchingAlgoHelpers;
+// Developed by Rahul Jaideep
+
+import MatchingAlgoHelpers.Schedulable;
+
 import java.util.ArrayList;
 
 public class Scheduler{
 
     /**
-     * Creates a new Scheduler object.
+     * Creates a new MatchingAlgoHelpers.Scheduler object.
      */
     public Scheduler(){
     }
 
     /**
      * This method returns a list of common times between two schedulable objects (Tennis players).
-     * How to call -> Scheduler.getCommonTimes((Schedulable) p1, (Schedulable) p2)
+     * How to call -> MatchingAlgoHelpers.Scheduler.getCommonTimes((MatchingAlgoHelpers.Schedulable) p1, (MatchingAlgoHelpers.Schedulable) p2)
      */
     public ArrayList<String> getCommonTimes(Schedulable s1, Schedulable s2){
         ArrayList<String> commonTimes = new ArrayList<String>();
@@ -29,7 +34,7 @@ public class Scheduler{
 
     /**
      * This method returns a list of the two schedulable objects (Tennis players).
-     * How to call -> Scheduler.getSchedulableUsernames((Schedulable) p1, (Schedulable) p2)
+     * How to call -> MatchingAlgoHelpers.Scheduler.getSchedulableUsernames((MatchingAlgoHelpers.Schedulable) p1, (MatchingAlgoHelpers.Schedulable) p2)
      */
     public String[] getSchedulableUsernames(Schedulable player1, Schedulable player2){
         return new String[]{player1.getUsername(), player2.getUsername()};

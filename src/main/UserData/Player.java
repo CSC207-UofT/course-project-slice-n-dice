@@ -1,6 +1,10 @@
+package UserData;
+
+import Managers.Manageable;
+
 import java.util.ArrayList;
 
-public class Player implements Manageable, BioRetrieval{
+public class Player implements Manageable, BioRetrieval {
     private String username;
     private int age;
     private String bio;
