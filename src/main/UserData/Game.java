@@ -1,8 +1,12 @@
+package UserData;
+
+import UserData.BioRetrieval;
+
 import java.util.Calendar;
         import java.util.ArrayList;
         import java.text.SimpleDateFormat;
 
-public class Game implements BioRetrieval{
+public class Game implements BioRetrieval {
 
     private Calendar date;
     private String court;
