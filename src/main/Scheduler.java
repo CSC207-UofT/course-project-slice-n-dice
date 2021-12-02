@@ -1,3 +1,6 @@
+/*
+    Developed by Rahul Jaideep
+ */
 import java.util.ArrayList;
 
 public class Scheduler{
@@ -13,7 +16,7 @@ public class Scheduler{
      * How to call -> Scheduler.getCommonTimes((Schedulable) p1, (Schedulable) p2)
      */
     public ArrayList<String> getCommonTimes(Schedulable s1, Schedulable s2){
-        ArrayList<String> commonTimes = new ArrayList<String>();
+        ArrayList<String> commonTimes = new ArrayList<>();
         ArrayList<String> schedule1 = s1.getSchedule();
         ArrayList<String> schedule2 = s2.getSchedule();
 
