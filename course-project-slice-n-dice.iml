@@ -68,5 +68,6 @@
         <jarDirectory url="file://$APPLICATION_HOME_DIR$/lib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="junit.jupiter" level="application" />
   </component>
 </module>
