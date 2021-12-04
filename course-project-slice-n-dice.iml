@@ -35,6 +35,18 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/twilio-8.9.0-jar-with-dependencies.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="twilio.sdk" level="project" />
     <orderEntry type="library" name="junit.jupiter" level="application" />
+    <orderEntry type="library" name="twilio-8.9.0-jar-with-dependencies" level="application" />
+    <orderEntry type="library" name="json-simple-1.1.1" level="application" />
   </component>
 </module>
