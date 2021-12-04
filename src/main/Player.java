@@ -9,6 +9,8 @@ public class Player implements Manageable, BioRetrieval{
     private double skill;
     private String phoneNumber;
     private ArrayList<String> swipedUsers;
+    private int numberWins;
+    private int numberLoss;
 
     public Player(){
         this.username = "";
@@ -19,6 +21,8 @@ public class Player implements Manageable, BioRetrieval{
         this.skill = 0;
         this.phoneNumber = "";
         this.swipedUsers = new ArrayList<>();
+        this.numberWins = 0;
+        this.numberLoss = 0;
     }
 
     public Player(String username, int age, String bio, double latitude, double longitude, ArrayList<String> availability, double skill,
@@ -79,7 +83,9 @@ public class Player implements Manageable, BioRetrieval{
         return swipedUsers;
     }
 
-
+    public int[] getWinsandLosses(){
+        return new int[]{this.numberWins, this.numberLoss};
+    }
 
 }
 
