@@ -1,6 +1,6 @@
-/*
-    Developed by Aman Rana and Rahul Jaideep
- */
+package MatchingAlgoHelpers;
+// Developed by Aman Rana and Rahul Jaideep
+
 import java.util.ArrayList;
 
 public interface Matchable {
