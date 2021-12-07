@@ -3,28 +3,30 @@ package UserData;
 import Managers.Manageable;
 
 import java.util.ArrayList;
-
-public class Player implements Manageable, BioRetrieval {
+// Done by Seung Ho
+public class Player implements Manageable, BioRetrieval{
     private String username;
     private int age;
     private String bio;
-    private double[] location = new double[2];
+    private double[] location; // This attribute represents the location of a player by Longitude and
+    // Latitude. - Seung Ho
     private ArrayList<String> availability;
     private double skill;
     private String phoneNumber;
-    private ArrayList<String> swipedUsers;
+    private ArrayList<String> swipedUsers; // This attribute is a list for each player's own list of users that they
+    // swiped on. - Seung Ho
 
     public Player(){
         this.username = "";
         this.age = 0;
         this.location = new double[]{0, 0};
         this.bio = "";
-        this.availability = new ArrayList<String>();
+        this.availability = new ArrayList<>();
         this.skill = 0;
         this.phoneNumber = "";
         this.swipedUsers = new ArrayList<>();
     }
-
+    // Initializes a new Player according to the attributes mentioned above - Seung Ho
     public Player(String username, int age, String bio, double latitude, double longitude, ArrayList<String> availability, double skill,
                   String phoneNumber)
     {
@@ -38,7 +40,7 @@ public class Player implements Manageable, BioRetrieval {
         this.swipedUsers = new ArrayList<>();
 
     }
-
+    // The appropriate getter functions for all the attributes that are above - Seung Ho
     public String getUsername(){
         return this.username;
     }
