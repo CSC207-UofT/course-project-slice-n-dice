@@ -1,0 +1,43 @@
+
+@import 'bootstrap';
+@import "matchPage.js";
+
+#titleText {
+    font-size: 24pt;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.btn-primary {
+    background-color: rgb(118, 66, 153) !important;
+    border-color: rgb(118, 66, 153) !important;
+}
+
+.btn-primary:hover {
+    background-color: rgb(101, 57, 131) !important;
+    border-color: rgb(101, 57, 131) !important;
+}
+
+.stats-container-fluid {
+    text-align: center;
+
+  }
+
+  .match-container-fluid {
+    text-align: center;
+
+  }
+
+  .welcome-container-fluid {
+    text-align: center;
+  }
+
+  .btn-light:hover {
+    background-color: rgb(207, 207, 207) !important;
+    border-color: rgb(207, 207, 207) !important;
+}
+

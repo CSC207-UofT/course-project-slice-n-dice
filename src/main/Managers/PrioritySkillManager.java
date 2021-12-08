@@ -1,7 +1,11 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+package Managers;
+// Developed by Rahul Jaideep
 
-public class PrioritySkillManager extends Manager{
+import MatchingAlgoHelpers.MatchMaker;
+import MatchingAlgoHelpers.Scheduler;
+
+// Subclass of Manager - prioritizes score by skill
+public class PrioritySkillManager extends Manager {
 
     public PrioritySkillManager(MatchMaker mm1, Scheduler ss1) {
         super(mm1, ss1);

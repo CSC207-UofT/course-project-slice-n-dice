@@ -1,3 +1,6 @@
+package MatchingAlgoHelpers;
+//Developed by Aman Rana
+
 import java.util.ArrayList;
 
 import static java.lang.Math.sqrt;
@@ -10,8 +13,8 @@ public class MatchMaker{
     /**
      * getScoreBase method returns a list of 2 variables where the first element is the skill difference
      * and the second element is the location difference.
-     * @param m1 Matchable object 1
-     * @param m2 Matchable object 2
+     * @param m1 MatchingAlgoHelpers.Matchable object 1
+     * @param m2 MatchingAlgoHelpers.Matchable object 2
      */
     public double[] getScoreBase(Matchable m1, Matchable m2){
         double skill_difference;
@@ -31,8 +34,8 @@ public class MatchMaker{
      * This method returns the weighted average which exemplifies the match suitability between two players.
      * A score of 0 means the match is perfect, the two players are in the same location and have the same skill
      * levels. The score is a weighted average which weighs location as twice as important as skill level difference.
-     * @param m1 Matchable object 1
-     * @param m2 Matchable object 2
+     * @param m1 MatchingAlgoHelpers.Matchable object 1
+     * @param m2 MatchingAlgoHelpers.Matchable object 2
      */
     public double getScoreLocation(Matchable m1, Matchable m2) {
         double skill_difference = getScoreBase(m1, m2)[0];
@@ -44,8 +47,8 @@ public class MatchMaker{
      * This method returns the weighted average which exemplifies the match suitability between two players.
      * A score of 0 means the match is perfect, the two players are in the same location and have the same skill
      * levels. The score is a weighted average which weighs skill difference as twice as important as location.
-     * @param m1 Matchable object 1
-     * @param m2 Matchable object 2
+     * @param m1 MatchingAlgoHelpers.Matchable object 1
+     * @param m2 MatchingAlgoHelpers.Matchable object 2
      */
     public double getScoreSkill(Matchable m1, Matchable m2){
         double skill_difference = getScoreBase(m1, m2)[0];
@@ -55,8 +58,8 @@ public class MatchMaker{
 
     /**
      * getUsernames returns the usernames attribute to an array list of the players usernames
-     * @param m1 Matchable object 1
-     * @param m2 Matchable object 2
+     * @param m1 MatchingAlgoHelpers.Matchable object 1
+     * @param m2 MatchingAlgoHelpers.Matchable object 2
      */
     public String[] getMatchMakerUsernames(Matchable m1, Matchable m2){
         return new String[]{m1.getUsername(), m2.getUsername()};

@@ -1,3 +1,4 @@
+import UserData.Player;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -6,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
-    static ArrayList<String> avail = new ArrayList<String>();
+    static ArrayList<String> avail = new ArrayList<>();
 
     private final Player player1 = new Player("janedoe12", 22, "I know tennis.", 133.4,
             89.02, avail, 5, "6479837765");
