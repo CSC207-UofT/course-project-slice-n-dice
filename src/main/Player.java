@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Player implements Manageable, BioRetrieval{
+public class Player implements Manageable, BioRetrieval, StatsMaker{
     private String username;
     private int age;
     private String bio;
@@ -9,8 +9,8 @@ public class Player implements Manageable, BioRetrieval{
     private double skill;
     private String phoneNumber;
     private ArrayList<String> swipedUsers;
-    private int numberWins;
-    private int numberLoss;
+    private StatsMaker numberWins;
+    private StatsMaker numberLoss;
 
     public Player(){
         this.username = "";
@@ -21,8 +21,8 @@ public class Player implements Manageable, BioRetrieval{
         this.skill = 0;
         this.phoneNumber = "";
         this.swipedUsers = new ArrayList<>();
-        this.numberWins = 0;
-        this.numberLoss = 0;
+        this.numberWins = new Player();
+        this.numberLoss = new Player();
     }
 
     public Player(String username, int age, String bio, double latitude, double longitude, ArrayList<String> availability, double skill,
@@ -84,7 +84,7 @@ public class Player implements Manageable, BioRetrieval{
     }
 
     public int[] getWinsandLosses(){
-        return new int[]{this.numberWins, this.numberLoss};
+        return new int[]{0, 0};
     }
 
 }
