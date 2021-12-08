@@ -1,6 +1,10 @@
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.List;
 
-public class Player implements Manageable, BioRetrieval, PlayerDataOut {
+public class Player implements Manageable, BioRetrieval {
     private String username;
     private int age;
     private String bio;
@@ -79,7 +83,18 @@ public class Player implements Manageable, BioRetrieval, PlayerDataOut {
         return swipedUsers;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Player{" +
+                "username='" + username + '\'' +
+                ", age=" + age +
+                ", bio='" + bio + '\'' +
+                ", location=" + Arrays.toString(location) +
+                ", availability=" + availability +
+                ", skill=" + skill +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", swipedUsers=" + swipedUsers +
+                '}';
+    }
 }
 

@@ -1,19 +1,29 @@
+/*
+Developed by Alexia Monize
+*/
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public interface PlayerDataOut {
+public interface PlayerDataOut extends Manageable{
 
-    public String getUsername();
+    String getUsername();
 
-    public String getBio();
+    String getBio();
 
-    public int getAge();
+    int getAge();
 
-    public double[] getLocation();
+    double[] getLocation();
 
-    public ArrayList<String> getAvailability();
+    ArrayList<String> getAvailability();
 
-    public double getSkill();
+    double getSkill();
 
-    public String getPhoneNumber();
+    String getPhoneNumber();
+
+    ArrayList getSwipedUsers();
+
+    ArrayList<Manageable> getRankedList();
+
+    ArrayList<Manageable> getPlayers();
 
 }
