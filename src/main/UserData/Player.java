@@ -1,14 +1,10 @@
-import java.sql.Array;
 package UserData;
 
 import Managers.Manageable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Dictionary;
-import java.util.List;
 
-public class Player implements Manageable, BioRetrieval {
 // Done by Seung Ho
 public class Player implements Manageable, BioRetrieval{
     private String username;
@@ -104,5 +100,5 @@ public class Player implements Manageable, BioRetrieval{
                 ", swipedUsers=" + swipedUsers +
                 '}';
     }
-}
 
+}

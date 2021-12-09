@@ -1,7 +1,8 @@
-/*
+package ReadAndWrite;/*
 Developed by Alexia Monize
 source code: https://howtodoinjava.com/java/library/json-simple-read-write-json-examples/
 */
+import UserData.Player;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,22 +23,17 @@ public class Read{
 
         try (FileReader reader = new FileReader("src/main/pipe1.json"))
         {
-            //Read JSON file
+            //ReadAndWrite.Read JSON file
             JSONObject obj = (JSONObject) jsonParser.parse(reader);
         // playerData is profiles
             JSONArray playerData = (JSONArray) obj.get("profiles");
             System.out.println(playerData);
 
-            ArrayList<Player> playerList = new ArrayList();
             //Iterate over employee array
             playerData.forEach( ply -> {Player player = (parsePlayerObject( (JSONObject) ply ));
             System.out.println(player);});
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
