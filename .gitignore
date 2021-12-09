@@ -5,6 +5,8 @@
 **/build/
 !src/**/build/
 
+/Users/johnpark/IdeaProjects/course-project-slice-n-dice2/.idea/misc.xml
+
 # Ignore Gradle GUI config
 gradle-app.setting
 
