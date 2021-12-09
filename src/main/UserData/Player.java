@@ -18,6 +18,7 @@ public class Player implements Manageable, BioRetrieval{
     private ArrayList<String> swipedUsers; // This attribute is a list for each player's own list of users that they
     // swiped on. - Seung Ho
 
+
     public Player(){
         this.username = "";
         this.age = 0;
@@ -40,7 +41,8 @@ public class Player implements Manageable, BioRetrieval{
         this.skill = skill;
         this.phoneNumber = phoneNumber;
         this.swipedUsers = new ArrayList<>();
-
+//        this.numberWins = new Player();
+//        this.numberLoss = new Player();
     }
     // The appropriate getter functions for all the attributes that are above - Seung Ho
     public String getUsername(){
