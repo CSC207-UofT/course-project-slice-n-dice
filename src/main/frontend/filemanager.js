@@ -5,26 +5,61 @@
  * When you have something from the frontend to send to backend, use saveJSONtoFile with writeFileName
  */
 
-    //this is the file you read into the javascript from the java
-const readFileName = "./pipe1.json";
-
-//this is the file you write to the java from here
-const writeFileName = "./pipe2.json";
-
 var currentReadTime = 0;
+
+var buffer = "";
+
+const ip = "127.0.0.1";
+const port = 6060;
 
 
 //save the specified obj at the specified path
 //return false if unsuccessful, true otherwise.
-function saveJSONToFile(path, obj) {
-    JSON.stringify(obj);
+function saveJSONToFile(data) {
+    var request = new XMLHttpRequest();
 
-    //TODO: save and return bool
+    request.open("POST", "http://" + ip + ":" + port, true);
+    request.setRequestHeader("Content-type", "text/plain")
+    request.onload = function () {
+        if(request.readyState === 4 && request.status === 201) {
+            console.log("successfully sent to server: ", data);
+        }
+    }
+    
+    request.send(data);
 }
 
-//return the JSON file loaded from the specified path
-function loadJSONFromFile(file) {
+//load the file. Return null if timeout or failure.
+function loadJSONFromFile(file)
+{
+    buffer = "";
+    var request = new XMLHttpRequest();
+    let timeout = 3000;
+    let date = new Date();
+    let readStartTime = date.getMilliseconds();
+    request.open("GET", "http://" + ip + ":" + port, false);
+    request.onreadystatechange = function ()
+    {
+        if(request.readyState === 4)
+        {
+            if(request.status === 200 || request.status == 0)
+            {
+                buffer = request.responseText;
+               
+            }
+        }
+    }
     
+    request.send();
+    while (request.readyState !== 4) {
+        if (date.getMilliseconds() < readStartTime + timeout){
+            console.log("ERROR: Timeout when trying to read file: ", file);
+            return null;
+        }
+    };
+
+    console.log(buffer);
+    return buffer;
 }
 
 
@@ -32,11 +67,5 @@ function loadJSONFromFile(file) {
 function isReadReady(path) {
 
 } 
-
-// WHAT I AM WRITING:
-// player information, then the people they swipe on
-
-// I AM READING:
-// 
 
 export {loadJSONFromFile, saveJSONToFile, isReadReady}
