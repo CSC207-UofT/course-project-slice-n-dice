@@ -3,6 +3,8 @@ package UserData;
 import Managers.Manageable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 // Done by Seung Ho
 public class Player implements Manageable, BioRetrieval{
     private String username;
@@ -85,7 +87,18 @@ public class Player implements Manageable, BioRetrieval{
         return swipedUsers;
     }
 
-
+    @Override
+    public String toString() {
+        return "Player{" +
+                "username='" + username + '\'' +
+                ", age=" + age +
+                ", bio='" + bio + '\'' +
+                ", location=" + Arrays.toString(location) +
+                ", availability=" + availability +
+                ", skill=" + skill +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", swipedUsers=" + swipedUsers +
+                '}';
+    }
 
 }
-

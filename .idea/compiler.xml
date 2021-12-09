@@ -5,4 +5,7 @@
       <module name="course-project-slice-n-dice" target="11" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-Xlint:unchecked" />
+  </component>
 </project>

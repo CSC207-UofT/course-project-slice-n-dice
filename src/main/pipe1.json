@@ -1,0 +1,30 @@
+{
+    "profiles": [
+    
+    {"username":"johnpark123", 
+    "age":21, 
+    "bio":"U of T Varsity Tennis. Looking for people to play on weekends! Some experience is preferred!", 
+    "region": [47.8898, -3.5690],
+    "skilllevel": 5.5,
+    "availability": ["Fridays", "Saturdays", "Sundays"],
+    "photo": "./john.jpg"},
+
+    {"username":"rafaelnadal", 
+        "age":35, 
+        "bio":"ATP # 6. Winner of 20 Grand Slam Men's Singles Titles. 13 French Open Titles.", 
+        "region": [47.8898, -3.5690],
+        "skilllevel": 7.0,
+        "availability": ["Mondays", "Thursdays", "Sundays"],
+        "photo": "nadal.jpeg"},
+
+
+    {"username":"therealrogerfederer", 
+        "age":40, 
+        "bio":"i love playing tennis!", 
+        "region": [23.8898, 15.5690],
+        "skilllevel": 7.0,
+        "availability": ["Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays", "Sundays"],
+        "photo": "federer.jpg"}
+
+]
+}
