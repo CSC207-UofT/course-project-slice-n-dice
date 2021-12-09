@@ -6,6 +6,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.*;
 
 
+
 public class PlayerStats {
 
     public int numGamesPlayed(int wins, int losses){
@@ -20,32 +21,31 @@ public class PlayerStats {
         return (double) wins / losses;
     }
 
+    public int numGames;
+
+    public PlayerStats() {
+        this.numGames = 0;
+    }
+
     public void isReadReady(String path, String path2){
-        while (!checkNewChange(path)) {
-            JSONParser parser = new JSONParser();
-            try {
-                var obj = parser.parse(new FileReader(path));
-                JSONObject jsonObject =  (JSONObject) obj;
-                String wins =  (String) jsonObject.get("wins");
-                String losses = (String) jsonObject.get("losses");
+        JSONParser parser = new JSONParser();
+        try {
+            var obj = parser.parse(new FileReader(path));
+            JSONObject jsonObject =  (JSONObject) obj;
+            String wins =  (String) jsonObject.get("wins");
+            String losses = (String) jsonObject.get("losses");
 
-                int new_wins = Integer.parseInt(wins);
-                int new_losses = Integer.parseInt(losses);
-
+            int new_wins = Integer.parseInt(wins);
+            int new_losses = Integer.parseInt(losses);
+            //only save a new pipe if the number of games has changed.
+            if (new_wins + new_losses > this.numGames) {
+                this.numGames = new_wins + new_losses;
                 loadandsaveJSON(path2, new_wins, new_losses);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        // YOU ARE READING FROM statspipe1.json
-        // you have an instance variable that stores the last time the file was modified (initially, set it to 0)
-        // have a while loop that is constantly checking the last updated time of the file
-        // google how to access a file's metadata in Java/what the variable would be called
-        // if the last updated time is newer, do these two things
-        // 1. set the new modified time to the one you just read (NOTE: make sure you're saving the last UPDATED time,
-        // not the time this is happening)
-        // 2. break out of the while loop and call the method that reads the json information
+
     }
 
     @SuppressWarnings("unchecked")
@@ -66,15 +66,8 @@ public class PlayerStats {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // just parse the json information into two variables: wins and losses
-        // call the methods that manipulate that information (like get win rate, whatever) and save those to variables
-        // create a new JSON object with these three variables
-        // Save that JSON object to statspipe2.json
 
-    }
 
-    public boolean checkNewChange(String filepath){
-        return true;
     }
 }
 
