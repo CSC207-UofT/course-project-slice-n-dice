@@ -1,6 +1,7 @@
 package UserData;
 
 import Managers.Manageable;
+import MatchingAlgoHelpers.StatsMaker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +18,9 @@ public class Player implements Manageable, BioRetrieval{
     private String phoneNumber;
     private ArrayList<String> swipedUsers; // This attribute is a list for each player's own list of users that they
     // swiped on. - Seung Ho
+    private StatsMaker numberWins; // Stores number of wins - Poorvi
+    private StatsMaker numberLoss; // Stores number of losses - Poorvi
+
 
     public Player(){
         this.username = "";
@@ -40,7 +44,6 @@ public class Player implements Manageable, BioRetrieval{
         this.skill = skill;
         this.phoneNumber = phoneNumber;
         this.swipedUsers = new ArrayList<>();
-
     }
     // The appropriate getter functions for all the attributes that are above - Seung Ho
     public String getUsername(){
@@ -85,6 +88,10 @@ public class Player implements Manageable, BioRetrieval{
 
     public ArrayList<String> getSwipedUsers(){
         return swipedUsers;
+    }
+
+    public StatsMaker[] getWinsandLosses(){
+        return new StatsMaker[]{this.numberWins, this.numberLoss};
     }
 
     @Override
